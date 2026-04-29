@@ -63,7 +63,7 @@ const Home = () => {
                     >
                         <InteractiveProductCard 
                             className="min-h-[500px]"
-                            imageUrl="/images/hero_bg.png"
+                            imageUrl={`${import.meta.env.BASE_URL}images/hero_bg.png`}
                             quote="Beauty begins the moment you decide to be yourself."
                         />
                     </motion.div>

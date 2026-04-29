@@ -46,34 +46,34 @@ const InstagramFeed = () => {
                     {/* Column 1 */}
                     <motion.div style={{ y: y1 }} className="flex flex-col gap-4 md:gap-8">
                         <div className="aspect-[3/4] w-full rounded-[20px] md:rounded-[30px] overflow-hidden relative group">
-                            <img src="/images/gallery1.png" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                            <img src={`${import.meta.env.BASE_URL}images/gallery1.png`} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
                             <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
                         </div>
                         <div className="aspect-square w-full rounded-[20px] md:rounded-[30px] overflow-hidden relative group">
-                            <img src="/images/gallery3.png" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                            <img src={`${import.meta.env.BASE_URL}images/gallery3.png`} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
                         </div>
                     </motion.div>
 
                     {/* Column 2 */}
                     <motion.div style={{ y: y2 }} className="flex flex-col gap-4 md:gap-8">
                         <div className="aspect-square w-full rounded-[20px] md:rounded-[30px] overflow-hidden relative group">
-                            <img src="/images/gallery2.png" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                            <img src={`${import.meta.env.BASE_URL}images/gallery2.png`} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
                         </div>
                         <div className="aspect-[3/4] w-full rounded-[20px] md:rounded-[30px] overflow-hidden relative group">
-                            <img src="/images/gallery4.png" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                            <img src={`${import.meta.env.BASE_URL}images/gallery4.png`} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
                         </div>
                         <div className="aspect-square w-full rounded-[20px] md:rounded-[30px] overflow-hidden relative group hidden md:block">
-                            <img src="/images/gallery1.png" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                            <img src={`${import.meta.env.BASE_URL}images/gallery1.png`} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
                         </div>
                     </motion.div>
 
                     {/* Column 3 (Hidden on very small screens, visible on md+) */}
                     <motion.div style={{ y: y3 }} className="flex flex-col gap-4 md:gap-8 hidden md:flex">
                         <div className="aspect-[4/5] w-full rounded-[20px] md:rounded-[30px] overflow-hidden relative group">
-                            <img src="/images/gallery3.png" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                            <img src={`${import.meta.env.BASE_URL}images/gallery3.png`} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
                         </div>
                         <div className="aspect-square w-full rounded-[20px] md:rounded-[30px] overflow-hidden relative group">
-                            <img src="/images/gallery2.png" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                            <img src={`${import.meta.env.BASE_URL}images/gallery2.png`} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
                         </div>
                     </motion.div>
 
