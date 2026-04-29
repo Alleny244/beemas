@@ -66,7 +66,7 @@ export function CircularCarousel({
     const angleStep = 360 / N;
 
     return (
-        <div style={{ ...style, width: "100%", height: "100%", perspective, overflow: "visible", position: "relative", cursor: dragging.current ? "grabbing" : "grab", userSelect: "none", touchAction: "none" }}>
+        <div style={{ ...style, width: "100%", height: "100%", perspective, overflow: "visible", position: "relative", cursor: dragging.current ? "grabbing" : "grab", userSelect: "none", touchAction: "pan-y" }}>
             <div style={{ width: "100%", height: "100%", position: "absolute", transformStyle: "preserve-3d", willChange: "transform", transform: `rotateY(${rotation}deg)` }}>
                 {items.map((item, i) => {
                     return (
