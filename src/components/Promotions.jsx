@@ -34,7 +34,7 @@ const Promotions = () => {
                         
                         <div className="relative w-full flex justify-center items-center">
                             <BookEffect>
-                                <img src="/images/gallery4.png" alt="Bridal Promotion" className="w-full h-full object-cover rounded-r-lg" />
+                                <img src={`${import.meta.env.BASE_URL}images/gallery4.png`} alt="Bridal Promotion" className="w-full h-full object-cover rounded-r-lg" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6">
                                     <h3 className="text-white font-bold text-2xl tracking-tighter mb-1">BRIDAL SIGNATURE</h3>
                                     <p className="text-white/80 text-sm">Limited Time Offer</p>

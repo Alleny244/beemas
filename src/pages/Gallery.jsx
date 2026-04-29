@@ -7,12 +7,12 @@ import ThreeDInteractiveCard from '../components/ui/three-d-interactive-card';
 const categories = ['All', 'Bridal', 'Hair', 'Makeup', 'Editorial'];
 
 const galleryItems = [
-    { id: 1, category: 'Bridal', title: 'Traditional Elegance', image: '/images/gallery1.png' },
-    { id: 2, category: 'Makeup', title: 'HD Cinematic Glow', image: '/images/gallery2.png' },
-    { id: 3, category: 'Hair', title: 'Architectural Waves', image: '/images/gallery3.png' },
-    { id: 4, category: 'Bridal', title: 'Modern Reception', image: '/images/gallery4.png' },
-    { id: 5, category: 'Editorial', title: 'Vogue Inspired', image: '/images/gallery1.png' },
-    { id: 6, category: 'Hair', title: 'Platinum Precision', image: '/images/gallery2.png' },
+    { id: 1, category: 'Bridal', title: 'Traditional Elegance', image: `${import.meta.env.BASE_URL}images/gallery1.png` },
+    { id: 2, category: 'Makeup', title: 'HD Cinematic Glow', image: `${import.meta.env.BASE_URL}images/gallery2.png` },
+    { id: 3, category: 'Hair', title: 'Architectural Waves', image: `${import.meta.env.BASE_URL}images/gallery3.png` },
+    { id: 4, category: 'Bridal', title: 'Modern Reception', image: `${import.meta.env.BASE_URL}images/gallery4.png` },
+    { id: 5, category: 'Editorial', title: 'Vogue Inspired', image: `${import.meta.env.BASE_URL}images/gallery1.png` },
+    { id: 6, category: 'Hair', title: 'Platinum Precision', image: `${import.meta.env.BASE_URL}images/gallery2.png` },
 ];
 
 const Gallery = () => {
@@ -70,11 +70,11 @@ const Gallery = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                         <div className="relative group rounded-[40px] overflow-hidden luxury-border aspect-square md:aspect-video">
                             <div className="absolute top-6 left-6 z-20 px-6 py-2 bg-black/60 backdrop-blur-xl rounded-full border border-white/10 text-[10px] uppercase tracking-widest font-bold">Initial State</div>
-                            <img src="/images/hero_bg.png" className="w-full h-full object-cover grayscale opacity-50 transition-all duration-700 group-hover:opacity-100 group-hover:grayscale-0" />
+                            <img src={`${import.meta.env.BASE_URL}images/hero_bg.png`} className="w-full h-full object-cover grayscale opacity-50 transition-all duration-700 group-hover:opacity-100 group-hover:grayscale-0" />
                         </div>
                         <div className="relative group rounded-[40px] overflow-hidden luxury-border aspect-square md:aspect-video">
                             <div className="absolute top-6 left-6 z-20 px-6 py-2 bg-primary/80 backdrop-blur-xl rounded-full border border-primary/20 text-black text-[10px] uppercase tracking-widest font-bold">The Artistry</div>
-                            <img src="/images/gallery1.png" className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105" />
+                            <img src={`${import.meta.env.BASE_URL}images/gallery1.png`} className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105" />
                         </div>
                     </div>
                 </div>

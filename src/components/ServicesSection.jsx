@@ -11,7 +11,7 @@ const services = [
         icon: <Scissors className="w-6 h-6" />,
         price: "From ₹499",
         category: "Hair",
-        image: "/images/services/hair.jpg"
+        image: `${import.meta.env.BASE_URL}images/services/hair.jpg`
     },
     {
         title: "Radiance Rituals",
@@ -19,7 +19,7 @@ const services = [
         icon: <Sparkles className="w-6 h-6" />,
         price: "From ₹1,499",
         category: "Skin",
-        image: "/images/services/skin.jpg"
+        image: `${import.meta.env.BASE_URL}images/services/skin.jpg`
     },
     {
         title: "Bridal Masterpiece",
@@ -27,7 +27,7 @@ const services = [
         icon: <Brush className="w-6 h-6" />,
         price: "Premium",
         category: "Makeover",
-        image: "/images/services/bridal.jpg"
+        image: `${import.meta.env.BASE_URL}images/services/bridal.jpg`
     },
     {
         title: "Gentleman's Suite",
@@ -35,7 +35,7 @@ const services = [
         icon: <User className="w-6 h-6" />,
         price: "From ₹399",
         category: "Grooming",
-        image: "/images/services/grooming.jpg"
+        image: `${import.meta.env.BASE_URL}images/services/grooming.jpg`
     },
     {
         title: "Luxe Nail Studio",
@@ -43,7 +43,7 @@ const services = [
         icon: <Heart className="w-6 h-6" />,
         price: "From ₹299",
         category: "Nails",
-        image: "/images/services/nails.jpg"
+        image: `${import.meta.env.BASE_URL}images/services/nails.jpg`
     },
     {
         title: "Cinematic Makeup",
@@ -51,7 +51,7 @@ const services = [
         icon: <Camera className="w-6 h-6" />,
         price: "From ₹2,499",
         category: "Events",
-        image: "/images/services/makeup.jpg"
+        image: `${import.meta.env.BASE_URL}images/services/makeup.jpg`
     }
 ];
 

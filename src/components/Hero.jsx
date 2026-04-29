@@ -26,7 +26,7 @@ const Hero = () => {
                     totalFrames={184} 
                     framePrefix="ezgif-frame-" 
                     frameExtension="jpg" 
-                    folderPath="/background" 
+                    folderPath={`${import.meta.env.BASE_URL}background`} 
                     fps={24} 
                 />
             </motion.div>

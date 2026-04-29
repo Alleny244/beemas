@@ -37,7 +37,7 @@ const About = () => {
                         className="relative"
                     >
                         <div className="aspect-[3/4] rounded-[60px] overflow-hidden border border-white/5 luxury-border">
-                            <img src="/images/about_owner.png" alt="Beema Najeem" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-[2s]" />
+                            <img src={`${import.meta.env.BASE_URL}images/about_owner.png`} alt="Beema Najeem" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-[2s]" />
                         </div>
                         <div className="absolute -bottom-6 -right-6 md:-bottom-12 md:-right-12 p-6 md:p-10 glass-card bg-[#121212]/80 backdrop-blur-3xl border-primary/20 max-w-[200px] md:max-w-xs z-10">
                             <h3 className="text-xl md:text-2xl font-bold mb-1 md:mb-2">Beema Najeem</h3>
@@ -93,9 +93,9 @@ const About = () => {
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
                         {[
-                            { name: 'Elena Rostova', role: 'Senior Colorist', img: '/images/gallery2.png' },
-                            { name: 'Sarah Ahmed', role: 'Lead Bridal Artist', img: '/images/gallery3.png' },
-                            { name: 'Mia Chen', role: 'Aesthetician', img: '/images/gallery4.png' }
+                            { name: 'Elena Rostova', role: 'Senior Colorist', img: `${import.meta.env.BASE_URL}images/gallery2.png` },
+                            { name: 'Sarah Ahmed', role: 'Lead Bridal Artist', img: `${import.meta.env.BASE_URL}images/gallery3.png` },
+                            { name: 'Mia Chen', role: 'Aesthetician', img: `${import.meta.env.BASE_URL}images/gallery4.png` }
                         ].map((stylist, i) => (
                             <div key={i} className="group relative">
                                 <div className="aspect-[3/4] rounded-[40px] overflow-hidden mb-6 luxury-border">
