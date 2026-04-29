@@ -70,7 +70,6 @@ function App() {
       
       <Footer />
       
-      <GooeyNav />
       <SplashCursor />
     </div>
   );
