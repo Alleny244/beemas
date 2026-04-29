@@ -108,36 +108,35 @@ const ReviewCard = ({ testimonial }) => (
 );
 
 const Testimonials = () => {
-    const items = testimonials.map((t, i) => ({
-        id: `review-${i}`,
-        content: <ReviewCard testimonial={t} />
-    }));
-
     const [dimensions, setDimensions] = React.useState({
         radius: 400,
         itemWidth: 240,
-        itemHeight: 320
+        itemHeight: 320,
+        count: 10
     });
 
     React.useEffect(() => {
         const updateDimensions = () => {
             if (window.innerWidth < 768) {
                 setDimensions({
-                    radius: 200,
-                    itemWidth: 180,
-                    itemHeight: 260
+                    radius: 280,
+                    itemWidth: 150,
+                    itemHeight: 220,
+                    count: 6
                 });
             } else if (window.innerWidth < 1024) {
                 setDimensions({
                     radius: 300,
                     itemWidth: 220,
-                    itemHeight: 300
+                    itemHeight: 300,
+                    count: 8
                 });
             } else {
                 setDimensions({
                     radius: 400,
                     itemWidth: 240,
-                    itemHeight: 320
+                    itemHeight: 320,
+                    count: 10
                 });
             }
         };
@@ -146,6 +145,11 @@ const Testimonials = () => {
         window.addEventListener('resize', updateDimensions);
         return () => window.removeEventListener('resize', updateDimensions);
     }, []);
+
+    const items = testimonials.slice(0, dimensions.count).map((t, i) => ({
+        id: `review-${i}`,
+        content: <ReviewCard testimonial={t} />
+    }));
 
     return (
         <section className="py-24 md:py-32 relative overflow-hidden bg-[#121212] border-t border-white/5">
