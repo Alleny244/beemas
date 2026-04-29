@@ -38,7 +38,7 @@ const InfiniteMenu = ({ items }) => {
   const y = useTransform(scrollY, (v) => -v);
 
   return (
-    <div className="relative h-[600px] overflow-hidden mask-fade-vertical">
+    <div className="relative h-[750px] lg:h-[850px] overflow-hidden mask-fade-vertical">
       <motion.div
         ref={containerRef}
         style={{ y }}

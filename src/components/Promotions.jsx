@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { BookEffect } from './ui/book-effect';
 
 const Promotions = () => {
     return (
@@ -31,12 +32,17 @@ const Promotions = () => {
                             </a>
                         </div>
                         
-                        <div className="relative aspect-square md:aspect-[4/3] rounded-[40px] overflow-hidden luxury-border">
-                            <img src="/images/gallery4.png" alt="Bridal Promotion" className="w-full h-full object-cover" />
-                            <div className="absolute inset-0 bg-black/20"></div>
-                            <div className="absolute bottom-6 right-6 bg-black/80 backdrop-blur-md px-6 py-3 rounded-full border border-white/10">
-                                <span className="text-primary font-bold tracking-widest uppercase text-[10px]">Save ₹4,999</span>
-                            </div>
+                        <div className="relative w-full flex justify-center items-center">
+                            <BookEffect>
+                                <img src="/images/gallery4.png" alt="Bridal Promotion" className="w-full h-full object-cover rounded-r-lg" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6">
+                                    <h3 className="text-white font-bold text-2xl tracking-tighter mb-1">BRIDAL SIGNATURE</h3>
+                                    <p className="text-white/80 text-sm">Limited Time Offer</p>
+                                </div>
+                                <div className="absolute top-6 right-6 bg-black/80 backdrop-blur-md px-6 py-3 rounded-full border border-white/10 z-20 shadow-xl">
+                                    <span className="text-primary font-bold tracking-widest uppercase text-[10px]">Save ₹4,999</span>
+                                </div>
+                            </BookEffect>
                         </div>
                     </div>
                 </motion.div>

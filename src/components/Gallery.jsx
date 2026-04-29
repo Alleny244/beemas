@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ZoomParallax } from "./ui/zoom-parallax";
+import ThreeDGalleryCard from './ui/three-d-gallery-card';
 
 const parallaxImages = [
     { src: '/images/gallery1.png', alt: 'Luxury Ambience' },
@@ -15,23 +16,32 @@ const parallaxImages = [
 const Gallery = () => {
     return (
         <section id="gallery" className="py-24 bg-[#0A0A0A] overflow-hidden">
-            <div className="max-w-7xl mx-auto px-6 text-center mb-16 relative z-10">
-                <motion.h4 
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="text-primary uppercase tracking-[0.4em] text-xs font-bold mb-4"
-                >
-                    Portfolio
-                </motion.h4>
-                <motion.h2 
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="text-4xl md:text-7xl font-bold tracking-tighter"
-                >
-                    VISUAL <span className="gradient-text italic font-serif">Excellence</span>
-                </motion.h2>
+            <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between mb-20 relative z-20 gap-12">
+                <div className="text-left max-w-xl">
+                    <motion.h4 
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        className="text-primary uppercase tracking-[0.4em] text-xs font-bold mb-4"
+                    >
+                        Portfolio
+                    </motion.h4>
+                    <motion.h2 
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="text-5xl md:text-8xl font-black tracking-tighter mb-6 leading-none"
+                    >
+                        VISUAL <br/> <span className="gradient-text italic font-serif">Excellence</span>
+                    </motion.h2>
+                    <p className="text-text-muted text-lg font-light leading-relaxed">
+                        A curation of our most transformative artistry. Hover over the collection to explore our signature looks.
+                    </p>
+                </div>
+
+                <div className="flex justify-center items-center h-[500px]">
+                    <ThreeDGalleryCard images={parallaxImages} />
+                </div>
             </div>
             
             <ZoomParallax images={parallaxImages} />

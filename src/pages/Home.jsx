@@ -6,6 +6,7 @@ import Promotions from '../components/Promotions';
 import Testimonials from '../components/Testimonials';
 import InstagramFeed from '../components/InstagramFeed';
 import SpotlightCard from '../components/SpotlightCard';
+import { InteractiveProductCard } from '../components/ui/card-7';
 
 const fadeUpVariant = {
   hidden: { opacity: 0, y: 60 },
@@ -60,15 +61,11 @@ const Home = () => {
                         transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
                         className="h-full"
                     >
-                        <SpotlightCard className="h-full border-primary/10">
-                            <div className="relative h-full min-h-[500px] overflow-hidden rounded-3xl">
-                                <img src="/images/hero_bg.png" alt="Luxury Salon" className="w-full h-full object-cover scale-110 hover:scale-100 transition-transform duration-[3s]" />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-                                <div className="absolute bottom-10 left-10 right-10 p-8 glass-card border-white/10">
-                                    <p className="text-white italic text-lg">"Beauty begins the moment you decide to be yourself."</p>
-                                </div>
-                            </div>
-                        </SpotlightCard>
+                        <InteractiveProductCard 
+                            className="min-h-[500px]"
+                            imageUrl="/images/hero_bg.png"
+                            quote="Beauty begins the moment you decide to be yourself."
+                        />
                     </motion.div>
                 </div>
             </section>

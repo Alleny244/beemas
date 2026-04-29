@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Star, Quote } from 'lucide-react';
-import InfiniteMenu from './InfiniteMenu';
+import { CircularCarousel } from './ui/circular-carousel';
 
 const testimonials = [
     {
@@ -27,33 +27,84 @@ const testimonials = [
         role: "Premium Grooming",
         text: "Such a convenient location with premium services. They listen to exactly what you need. My hair coloring turned out beautifully. 5 stars all the way!",
         rating: 5
+    },
+    {
+        name: "Nikhila M.",
+        role: "Nail Artistry",
+        text: "The nail art services are incredible. They have such an eye for detail and the gel extensions lasted flawlessly for weeks. A truly luxurious experience from start to finish.",
+        rating: 5
+    },
+    {
+        name: "Deepa J.",
+        role: "Skin Rituals",
+        text: "I opted for the signature HydraFacial before an event, and my skin has never glowed this much. The estheticians are extremely knowledgeable and the studio vibe is so relaxing.",
+        rating: 5
+    },
+    {
+        name: "Sara V.",
+        role: "Hair Styling",
+        text: "Finally found a stylist who understands curly hair! They completely transformed my look without damaging my natural texture. The premium products they use make a huge difference.",
+        rating: 5
+    },
+    {
+        name: "Meenakshi P.",
+        role: "Bridal Makeover",
+        text: "Booking Beemas for my wedding was the best decision. They made me feel like an absolute queen. The makeup was flawless, cinematic, and lasted through tears and dancing!",
+        rating: 5
+    },
+    {
+        name: "Anjali S.",
+        role: "Keratin Treatment",
+        text: "I was hesitant about getting a keratin treatment, but the team here explained everything perfectly. The results are stunning—my hair is silky smooth and manageable.",
+        rating: 5
+    },
+    {
+        name: "Lekshmi B.",
+        role: "Luxury Spa",
+        text: "Every visit feels like a mini-vacation. The attention to detail, from the consultation to the final finishing touches, sets them apart from any other salon in Kollam.",
+        rating: 5
     }
 ];
 
 const ReviewCard = ({ testimonial }) => (
-    <div className="glass-card p-8 border-white/5 relative group hover:border-primary/50 transition-all duration-700 w-full bg-[#0A0A0A] shadow-xl overflow-hidden rounded-2xl">
-        <Quote className="absolute top-4 right-4 w-12 h-12 text-primary opacity-5 transition-all duration-700 pointer-events-none" />
+    <motion.div 
+        whileHover={{ scale: 1.04, y: -4 }}
+        transition={{ type: "spring", stiffness: 400, damping: 25 }}
+        className="relative h-full p-[1px] rounded-3xl overflow-hidden group shadow-[0_10px_40px_rgba(0,0,0,0.5)] cursor-pointer"
+    >
+        {/* Animated Gold Gradient Border */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/40 via-transparent to-primary/40 opacity-40 group-hover:opacity-100 transition-opacity duration-700"></div>
         
-        <div className="flex text-primary mb-4 gap-1 relative z-10">
-            {[...Array(testimonial.rating)].map((_, i) => (
-                <Star key={i} className="w-3 h-3 fill-primary" />
-            ))}
-        </div>
-        
-        <p className="text-text-muted text-sm leading-relaxed font-light mb-6 italic relative z-10">
-            "{testimonial.text}"
-        </p>
-        
-        <div className="flex items-center gap-4 relative z-10">
-            <div className="w-10 h-10 rounded-full bg-[#121212] flex items-center justify-center text-primary text-sm font-bold border border-primary/30">
-                {testimonial.name.charAt(0)}
-            </div>
+        {/* Card Body */}
+        <div className="relative h-full bg-[#0A0A0A] p-5 md:p-6 rounded-3xl overflow-hidden z-10 flex flex-col">
+            {/* Background Glow */}
+            <div className="absolute -top-20 -right-20 w-32 h-32 bg-primary/20 blur-[50px] rounded-full group-hover:bg-primary/30 transition-all duration-700"></div>
+            
+            <Quote className="absolute top-4 right-4 w-8 h-8 text-primary opacity-10 group-hover:opacity-20 group-hover:scale-110 group-hover:rotate-12 transition-all duration-700" />
+            
             <div>
-                <div className="font-bold text-white tracking-widest uppercase text-[10px]">{testimonial.name}</div>
-                <div className="text-[8px] uppercase tracking-widest text-primary">{testimonial.role}</div>
+                <div className="flex text-primary mb-4 gap-1 relative z-10">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                        <Star key={i} className="w-3 h-3 fill-primary drop-shadow-[0_0_8px_rgba(212,175,55,0.6)]" />
+                    ))}
+                </div>
+                
+                <p className="text-white/90 text-xs md:text-sm leading-snug font-light mb-4 italic relative z-10 tracking-wide line-clamp-5">
+                    "{testimonial.text}"
+                </p>
+            </div>
+            
+            <div className="flex items-center gap-3 relative z-10 mt-auto pt-4 border-t border-white/10">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-yellow-600 flex-shrink-0 flex items-center justify-center text-black text-base font-black shadow-[0_0_20px_rgba(212,175,55,0.3)]">
+                    {testimonial.name.charAt(0)}
+                </div>
+                <div className="overflow-hidden">
+                    <div className="font-black text-white tracking-[0.2em] uppercase text-[10px] mb-1 truncate">{testimonial.name}</div>
+                    <div className="text-[8px] uppercase tracking-[0.3em] text-primary font-bold truncate">{testimonial.role}</div>
+                </div>
             </div>
         </div>
-    </div>
+    </motion.div>
 );
 
 const Testimonials = () => {
@@ -94,8 +145,8 @@ const Testimonials = () => {
                     </motion.p>
                 </div>
 
-                <div className="relative z-10">
-                    <InfiniteMenu items={items} />
+                <div className="relative z-10 w-full h-[500px] lg:h-[600px]">
+                    <CircularCarousel items={items.map(i => i.content)} radius={400} itemWidth={240} itemHeight={320} tiltAngle={-10} rotationSpeed={0.2} />
                 </div>
             </div>
         </section>

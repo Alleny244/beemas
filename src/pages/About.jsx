@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Award, Heart, Star, ShieldCheck, Camera } from 'lucide-react';
+import TextGlow from '../components/ui/text-glow';
 
 const fadeUpVariant = {
   hidden: { opacity: 0, y: 40 },
@@ -125,17 +126,23 @@ const About = () => {
                     <div className="absolute top-0 left-0 w-full h-full bg-primary/5 blur-[120px] -z-0"></div>
                     <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-16 text-center">
                         <div>
-                            <div className="text-6xl font-black text-primary mb-6">4.9</div>
+                            <div className="text-6xl font-black text-primary mb-6">
+                                <TextGlow text="4.9" />
+                            </div>
                             <h4 className="text-sm font-bold uppercase tracking-[0.3em] mb-4">Google Excellence</h4>
                             <p className="text-xs text-text-muted leading-relaxed max-w-[200px] mx-auto uppercase tracking-widest">Consistently rated as Kerala's top makeover studio.</p>
                         </div>
                         <div>
-                            <div className="text-6xl font-black text-primary mb-6">10k+</div>
+                            <div className="text-6xl font-black text-primary mb-6">
+                                <TextGlow text="10k+" />
+                            </div>
                             <h4 className="text-sm font-bold uppercase tracking-[0.3em] mb-4">Client Stories</h4>
                             <p className="text-xs text-text-muted leading-relaxed max-w-[200px] mx-auto uppercase tracking-widest">A legacy of beauty transformations across a decade.</p>
                         </div>
                         <div>
-                            <div className="text-6xl font-black text-primary mb-6">100%</div>
+                            <div className="text-6xl font-black text-primary mb-6">
+                                <TextGlow text="100%" />
+                            </div>
                             <h4 className="text-sm font-bold uppercase tracking-[0.3em] mb-4">Artisanship</h4>
                             <p className="text-xs text-text-muted leading-relaxed max-w-[200px] mx-auto uppercase tracking-widest">Bespoke services tailored to your unique essence.</p>
                         </div>

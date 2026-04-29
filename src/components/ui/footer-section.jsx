@@ -74,15 +74,38 @@ export function Footer() {
 								<h3 className="text-xs uppercase tracking-widest font-bold text-primary mb-6">{section.label}</h3>
 								<ul className="text-text-muted space-y-4 text-sm">
 									{section.links.map((link) => (
-										<li key={link.title}>
-											<Link
-												to={link.href}
-												className="hover:text-primary inline-flex items-center transition-all duration-300"
-											>
-												{link.icon && <link.icon className="me-2 size-4" />}
-												{link.title}
-											</Link>
-										</li>
+										<motion.li 
+											key={link.title}
+											whileHover={{ x: 8, scale: 1.05, originX: 0 }}
+											whileTap={{ scale: 0.95 }}
+											transition={{ type: "spring", stiffness: 400, damping: 17 }}
+										>
+											{link.href.startsWith('http') ? (
+												<a
+													href={link.href}
+													target="_blank"
+													rel="noopener noreferrer"
+													className="hover:text-primary inline-flex items-center transition-all duration-300 group"
+												>
+													{link.icon && <link.icon className="me-2 size-4 group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-300" />}
+													<span className="relative">
+														{link.title}
+														<span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-primary transition-all duration-300 group-hover:w-full"></span>
+													</span>
+												</a>
+											) : (
+												<Link
+													to={link.href}
+													className="hover:text-primary inline-flex items-center transition-all duration-300 group"
+												>
+													{link.icon && <link.icon className="me-2 size-4 group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-300" />}
+													<span className="relative">
+														{link.title}
+														<span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-primary transition-all duration-300 group-hover:w-full"></span>
+													</span>
+												</Link>
+											)}
+										</motion.li>
 									))}
 								</ul>
 							</div>

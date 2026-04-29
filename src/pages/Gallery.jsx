@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Maximize2, X, ArrowRightLeft } from 'lucide-react';
+import ThreeDGalleryCard from '../components/ui/three-d-gallery-card';
+import ThreeDInteractiveCard from '../components/ui/three-d-interactive-card';
 
 const categories = ['All', 'Bridal', 'Hair', 'Makeup', 'Editorial'];
 
@@ -59,7 +61,6 @@ const Gallery = () => {
                     </div>
                 </div>
 
-                {/* Before/After Spotlight */}
                 <div className="mb-48">
                     <div className="text-center mb-16">
                         <h3 className="text-3xl font-bold tracking-tight flex items-center justify-center gap-4">
@@ -78,39 +79,27 @@ const Gallery = () => {
                     </div>
                 </div>
 
-                {/* Main Grid */}
-                <motion.div 
-                    layout
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-                >
-                    <AnimatePresence>
-                        {filteredItems.map((item) => (
-                            <motion.div
-                                layout
-                                key={item.id}
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                exit={{ opacity: 0, scale: 0.9 }}
-                                transition={{ duration: 0.5 }}
-                                className="group relative aspect-[4/5] rounded-[40px] overflow-hidden border border-white/5 cursor-pointer"
-                                onClick={() => setSelectedImage(item)}
-                            >
-                                <img src={item.image} alt={item.title} className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-110" />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-10">
-                                    <div className="flex justify-between items-end">
-                                        <div>
-                                            <p className="text-primary text-[10px] uppercase tracking-widest font-bold mb-2">{item.category}</p>
-                                            <h3 className="text-2xl font-bold tracking-tight">{item.title}</h3>
-                                        </div>
-                                        <div className="w-12 h-12 rounded-full bg-primary/20 backdrop-blur-xl border border-primary/30 flex items-center justify-center text-primary">
-                                            <Maximize2 className="w-5 h-5" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </motion.div>
-                        ))}
-                    </AnimatePresence>
-                </motion.div>
+                {/* Main Grid: Reduced to 3 interactive stacks */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+                    {[
+                        { title: 'Bridal Heritage', items: [galleryItems[0], galleryItems[3]] },
+                        { title: 'Cinematic Glow', items: [galleryItems[1], galleryItems[4]] },
+                        { title: 'Styling Mastery', items: [galleryItems[2], galleryItems[5]] }
+                    ].map((group, index) => (
+                        <div key={index} className="flex flex-col items-center">
+                            <ThreeDGalleryCard 
+                                images={group.items.map(item => ({ src: item.image, alt: item.title }))} 
+                                title={group.title}
+                                description="Signature Collection"
+                                isGrid={false}
+                            />
+                            <div className="mt-8 text-center">
+                                <h3 className="text-xl font-bold tracking-tight text-white mb-2">{group.title}</h3>
+                                <p className="text-primary text-[10px] uppercase tracking-widest font-bold">Explore Collection</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </div>
 
             {/* Lightbox */}
