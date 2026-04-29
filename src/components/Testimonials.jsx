@@ -189,8 +189,9 @@ const Testimonials = () => {
                         radius={dimensions.radius} 
                         itemWidth={dimensions.itemWidth} 
                         itemHeight={dimensions.itemHeight} 
-                        tiltAngle={-10} 
+                        tiltAngle={window.innerWidth < 768 ? -5 : -10} 
                         rotationSpeed={0.2} 
+                        perspective={2000}
                     />
                 </div>
             </div>
