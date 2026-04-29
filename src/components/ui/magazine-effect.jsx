@@ -129,6 +129,30 @@ const Magazine = ({ pages }) => {
   );
 };
 
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+  static getDerivedStateFromError(error) {
+    return { hasError: true };
+  }
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div className="w-full h-full flex flex-col items-center justify-center p-8 text-center bg-white/5 rounded-3xl border border-white/10">
+          <div className="w-16 h-16 mb-6 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <h3 className="text-lg font-bold mb-2">Artistry in Progress</h3>
+          <p className="text-xs text-text-muted">We're perfecting this visual experience. Please explore our services below.</p>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
+
 export default function MagazineEffect({ frontCover, backCover, pages = [] }) {
   const magazinePages = useMemo(() => {
     const allPages = [];
@@ -146,18 +170,25 @@ export default function MagazineEffect({ frontCover, backCover, pages = [] }) {
   }, [frontCover, backCover, pages]);
 
   return (
-    <div className="w-full h-full min-h-[400px] cursor-pointer">
-      <Canvas shadows camera={{ position: [-0.5, 1, 4], fov: 45 }}>
-        <PerspectiveCamera makeDefault position={[-0.5, 1, 4]} fov={45} />
-        <OrbitControls enableZoom={false} minPolarAngle={Math.PI / 4} maxPolarAngle={Math.PI / 1.5} />
-        <Suspense fallback={null}>
-          <Float rotation-x={-Math.PI / 5} floatIntensity={1} speed={2} rotationIntensity={1}>
-            <Magazine pages={magazinePages} />
-          </Float>
-          <Environment preset="city" />
-          <ContactShadows opacity={0.4} scale={10} blur={2.4} far={4.5} />
+    <ErrorBoundary>
+      <div className="w-full h-full min-h-[300px] md:min-h-[400px] cursor-pointer overflow-hidden rounded-3xl bg-white/5 relative">
+        <Suspense fallback={
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-primary/40 space-y-4">
+            <div className="w-12 h-12 border-2 border-primary/20 border-t-primary rounded-full animate-spin"></div>
+            <span className="text-[10px] uppercase tracking-[0.2em]">Developing Artistry...</span>
+          </div>
+        }>
+          <Canvas shadows camera={{ position: [-0.5, 1, 4], fov: 45 }} gl={{ antialias: false, powerPreference: "high-performance" }}>
+            <PerspectiveCamera makeDefault position={[-0.5, 1, 4]} fov={45} />
+            <OrbitControls enableZoom={false} minPolarAngle={Math.PI / 4} maxPolarAngle={Math.PI / 1.5} />
+            <Float rotation-x={-Math.PI / 5} floatIntensity={1} speed={2} rotationIntensity={1}>
+              <Magazine pages={magazinePages} />
+            </Float>
+            <Environment preset="city" />
+            <ContactShadows opacity={0.4} scale={10} blur={2.4} far={4.5} />
+          </Canvas>
         </Suspense>
-      </Canvas>
-    </div>
+      </div>
+    </ErrorBoundary>
   );
 }

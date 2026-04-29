@@ -104,7 +104,7 @@ const Contact = () => {
                                 popup: {
                                     title: 'Beemas Makeover Studio',
                                     content: 'Kerala\'s premier sanctuary for cinematic beauty.',
-                                    image: '/images/services/bridal.jpg',
+                                    image: `${import.meta.env.BASE_URL}images/services/bridal.jpg`,
                                     googleMapsUrl: 'https://www.google.com/maps/dir//BEEMAS+MAKEOVER+STUDIO+AND+UNISEX+SALON,+MEEYANNOOR,+MEEYANNOOR+KUMMALLUR,+MEEYANNUR+KUMMALLOOR+ROAD,+MEEYANNOOR+KUMMALLOOR+ROAD,+KOLLAM,+Kerala+691537/@18.5073664,73.9213312,14z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3b05e1bcca12b71b:0xb6e3ae51d0f664c9!2m2!1d76.7418157!2d8.897272?entry=ttu&g_ep=EgoyMDI2MDQyMi4wIKXMDSoASAFQAw%3D%3D'
                                 }
                             }

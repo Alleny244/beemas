@@ -50,16 +50,16 @@ const Services = () => {
                         </div>
                     </div>
                     
-                    <div className="relative h-[600px] rounded-3xl overflow-hidden bg-black/20 backdrop-blur-sm border border-white/5">
+                    <div className="relative h-[400px] md:h-[600px] rounded-3xl overflow-hidden bg-black/20 backdrop-blur-sm border border-white/5">
                         <div className="absolute inset-0 flex items-center justify-center">
                             <MagazineEffect 
-                                frontCover="/images/gallery1.png"
-                                backCover="/images/gallery2.png"
+                                frontCover={`${import.meta.env.BASE_URL}images/gallery1.png`}
+                                backCover={`${import.meta.env.BASE_URL}images/gallery2.png`}
                                 pages={[
-                                    "/images/gallery3.png",
-                                    "/images/gallery4.png",
-                                    "/images/services/bridal.jpg",
-                                    "/images/services/skin.jpg"
+                                    `${import.meta.env.BASE_URL}images/gallery3.png`,
+                                    `${import.meta.env.BASE_URL}images/gallery4.png`,
+                                    `${import.meta.env.BASE_URL}images/services/bridal.jpg`,
+                                    `${import.meta.env.BASE_URL}images/services/skin.jpg`
                                 ]}
                             />
                         </div>
