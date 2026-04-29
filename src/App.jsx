@@ -9,6 +9,7 @@ import Gallery from './pages/Gallery';
 import Booking from './pages/Booking';
 import Contact from './pages/Contact';
 import GooeyNav from './components/GooeyNav';
+import MobileHeader from './components/MobileHeader';
 import SplashCursor from './components/SplashCursor';
 import { Footer } from './components/ui/footer-section';
 import Lenis from 'lenis';
@@ -51,6 +52,7 @@ function App() {
   return (
     <div className="app-container flex flex-col min-h-screen bg-[#121212] selection:bg-primary selection:text-black">
       <ScrollToTop />
+      <MobileHeader />
       <AnimatedNavFramer />
       
       <main className="flex-grow">
