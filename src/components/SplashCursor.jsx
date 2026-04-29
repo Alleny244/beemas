@@ -4,6 +4,8 @@ const SplashCursor = () => {
     const canvasRef = useRef(null);
 
     useEffect(() => {
+        if (window.innerWidth < 768) return;
+
         const canvas = canvasRef.current;
         const ctx = canvas.getContext('2d', { alpha: true });
         let width = window.innerWidth;

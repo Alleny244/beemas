@@ -68,7 +68,7 @@ const testimonials = [
 
 const ReviewCard = ({ testimonial }) => (
     <motion.div 
-        whileHover={{ scale: 1.04, y: -4 }}
+        whileHover={window.innerWidth >= 768 ? { scale: 1.04, y: -4 } : {}}
         transition={{ type: "spring", stiffness: 400, damping: 25 }}
         className="relative h-full p-[1px] rounded-3xl overflow-hidden group shadow-[0_10px_40px_rgba(0,0,0,0.5)] cursor-pointer"
     >
@@ -119,10 +119,10 @@ const Testimonials = () => {
         const updateDimensions = () => {
             if (window.innerWidth < 768) {
                 setDimensions({
-                    radius: 280,
-                    itemWidth: 150,
-                    itemHeight: 220,
-                    count: 6
+                    radius: 260,
+                    itemWidth: 140,
+                    itemHeight: 200,
+                    count: 4
                 });
             } else if (window.innerWidth < 1024) {
                 setDimensions({

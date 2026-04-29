@@ -80,9 +80,10 @@ export function CircularCarousel({
                                 height: itemHeight,
                                 marginLeft: -itemWidth / 2,
                                 marginTop: -itemHeight / 2,
-                                transform: `rotateY(${angleStep * i}deg) translateZ(${radius}px) rotateX(${tiltAngle}deg)`,
+                                transform: `rotateY(${angleStep * i}deg) translate3d(0, 0, ${radius}px) rotateX(${tiltAngle}deg)`,
                                 transformStyle: 'preserve-3d',
-                                backfaceVisibility: 'hidden'
+                                backfaceVisibility: 'hidden',
+                                willChange: 'transform'
                             }}
                         >
                             {item}
