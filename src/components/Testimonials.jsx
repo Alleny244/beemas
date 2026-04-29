@@ -89,7 +89,7 @@ const ReviewCard = ({ testimonial }) => (
                     ))}
                 </div>
                 
-                <p className="text-white/90 text-xs md:text-sm leading-snug font-light mb-4 italic relative z-10 tracking-wide line-clamp-5">
+                <p className="text-white/90 text-[11px] md:text-sm leading-snug font-light mb-4 italic relative z-10 tracking-wide line-clamp-8">
                     "{testimonial.text}"
                 </p>
             </div>
@@ -119,9 +119,9 @@ const Testimonials = () => {
         const updateDimensions = () => {
             if (window.innerWidth < 768) {
                 setDimensions({
-                    radius: 260,
-                    itemWidth: 140,
-                    itemHeight: 200,
+                    radius: 180,
+                    itemWidth: 200,
+                    itemHeight: 300,
                     count: 4
                 });
             } else if (window.innerWidth < 1024) {
