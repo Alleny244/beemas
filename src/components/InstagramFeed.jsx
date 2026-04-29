@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Camera, ArrowUpRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const InstagramFeed = () => {
     const containerRef = useRef(null);
@@ -79,9 +80,9 @@ const InstagramFeed = () => {
 
                     {/* Center Overlay Button */}
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
-                        <a href="/gallery" className="flex items-center gap-2 md:gap-3 px-6 md:px-8 py-4 md:py-5 rounded-full bg-white text-black font-bold text-[10px] md:text-xs uppercase tracking-widest hover:bg-primary hover:scale-105 transition-all duration-500 shadow-[0_0_50px_rgba(255,255,255,0.15)] whitespace-nowrap">
+                        <Link to="/gallery" className="flex items-center gap-2 md:gap-3 px-6 md:px-8 py-4 md:py-5 rounded-full bg-white text-black font-bold text-[10px] md:text-xs uppercase tracking-widest hover:bg-primary hover:scale-105 transition-all duration-500 shadow-[0_0_50px_rgba(255,255,255,0.15)] whitespace-nowrap">
                             Explore Gallery <ArrowUpRight className="w-4 h-4" />
-                        </a>
+                        </Link>
                     </div>
                     
                     {/* Gradient Fades for Seamless Container Look */}
