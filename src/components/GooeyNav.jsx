@@ -7,7 +7,7 @@ const GooeyNav = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <div className="fixed bottom-10 right-10 z-[100] w-16 h-16 pointer-events-auto">
+        <div className="fixed bottom-10 right-10 z-[100] w-16 h-16 pointer-events-auto md:hidden">
             {/* SVG Filter for Gooey Liquid Merge Effect */}
             <svg style={{ position: 'absolute', width: 0, height: 0 }}>
                 <filter id="gooey">

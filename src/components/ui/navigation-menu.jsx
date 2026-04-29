@@ -100,7 +100,7 @@ export function AnimatedNavFramer() {
 
 
   return (
-    <div className="fixed top-8 left-1/2 -translate-x-1/2 z-[100]">
+    <div className="fixed top-8 left-1/2 -translate-x-1/2 z-[100] hidden md:block">
       <motion.nav
         initial={{ y: -80, opacity: 0 }}
         animate={isExpanded ? "expanded" : "collapsed"}

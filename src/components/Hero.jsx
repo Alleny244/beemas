@@ -59,7 +59,7 @@ const Hero = () => {
                         initial={{ opacity: 0, letterSpacing: "0.1em" }}
                         animate={{ opacity: 1, letterSpacing: "0.4em" }}
                         transition={{ duration: 1.5, delay: 0.4 }}
-                        className="text-primary uppercase font-semibold text-xs md:text-sm mb-6"
+                        className="text-primary uppercase font-semibold text-sm md:text-base mb-6 tracking-[0.2em]"
                     >
                         Beemas Makeover Studio
                     </motion.h4>
@@ -68,7 +68,7 @@ const Hero = () => {
                         initial={{ opacity: 0, y: 40 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1.2, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                        className="text-5xl md:text-9xl lg:text-[11rem] mb-8 md:mb-10 leading-[1.1] md:leading-[0.9] font-extrabold tracking-tighter"
+                        className="text-4xl sm:text-5xl md:text-9xl lg:text-[11rem] mb-8 md:mb-10 leading-[1.2] md:leading-[0.9] font-extrabold tracking-tight md:tracking-tighter"
                     >
                         REDEFINING <br />
                         <span className="gradient-text italic font-thin font-serif lowercase">elegance</span>

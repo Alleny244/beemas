@@ -113,6 +113,40 @@ const Testimonials = () => {
         content: <ReviewCard testimonial={t} />
     }));
 
+    const [dimensions, setDimensions] = React.useState({
+        radius: 400,
+        itemWidth: 240,
+        itemHeight: 320
+    });
+
+    React.useEffect(() => {
+        const updateDimensions = () => {
+            if (window.innerWidth < 768) {
+                setDimensions({
+                    radius: 200,
+                    itemWidth: 180,
+                    itemHeight: 260
+                });
+            } else if (window.innerWidth < 1024) {
+                setDimensions({
+                    radius: 300,
+                    itemWidth: 220,
+                    itemHeight: 300
+                });
+            } else {
+                setDimensions({
+                    radius: 400,
+                    itemWidth: 240,
+                    itemHeight: 320
+                });
+            }
+        };
+
+        updateDimensions();
+        window.addEventListener('resize', updateDimensions);
+        return () => window.removeEventListener('resize', updateDimensions);
+    }, []);
+
     return (
         <section className="py-24 md:py-32 relative overflow-hidden bg-[#121212] border-t border-white/5">
             <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px] -z-10 translate-x-1/3 -translate-y-1/3 pointer-events-none"></div>
@@ -145,8 +179,15 @@ const Testimonials = () => {
                     </motion.p>
                 </div>
 
-                <div className="relative z-10 w-full h-[500px] lg:h-[600px]">
-                    <CircularCarousel items={items.map(i => i.content)} radius={400} itemWidth={240} itemHeight={320} tiltAngle={-10} rotationSpeed={0.2} />
+                <div className="relative z-10 w-full h-[400px] md:h-[500px] lg:h-[600px]">
+                    <CircularCarousel 
+                        items={items.map(i => i.content)} 
+                        radius={dimensions.radius} 
+                        itemWidth={dimensions.itemWidth} 
+                        itemHeight={dimensions.itemHeight} 
+                        tiltAngle={-10} 
+                        rotationSpeed={0.2} 
+                    />
                 </div>
             </div>
         </section>
